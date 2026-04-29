@@ -3,8 +3,347 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+// TODO: Write your extractWord function here
 
+// TODO: Write your countWordOccurrences function here
 
+// TODO: Write your analyzeText function here
+
+int main() {
+    char inputSentence[200];
+    char searchWord[50];
+    
+    // Read input sentence
+    fgets(inputSentence, sizeof(inputSentence), stdin);
+    // Remove newline character if present
+    inputSentence[strcspn(inputSentence, "\n")] = '\0';
+    
+    // Read search word
+    scanf("%s", searchWord);
+    
+    // TODO: Write your code below
+    // Call analyzeText function and store total word count
+    // Call countWordOccurrences function and store occurrences
+    // Calculate frequency percentage
+    // Determine frequency category
+    
+    // Output results in the required format
+    // printf("Total words: %d\n", totalWords);
+    // printf("Occurrences of '%s': %d\n", searchWord, occurrences);
+    // printf("Frequency: %.1f%%\n", frequency);
+    // printf("Category: %s\n", category);
+    
+    return 0;
+}
+
+/*
+// TODO: Define the Product struct here
+struct Product {
+    char name[30];
+    float price;
+    int stock;
+};
+
+// TODO: Implement the findMostExpensive function here
+int findMostExpensive(struct Product product[], int size){
+    float maxPrice = -1000.0;
+
+    for (int i = 0; i < size; i++){
+        if (product[i].price > maxPrice) {
+            maxPrice = product[i].price;
+        }
+    }
+
+    for (int i = 0; i < size; i++) {
+        if (product[i].price == maxPrice) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// TODO: Implement the calculateTotalValue function here
+float calculateTotalValue(struct Product product[], int size){
+    float summ = 0;
+    for(int i = 0; i < size; i++){
+        summ += product[i].price * product[i].stock;
+    }
+
+    return summ;
+}
+
+// TODO: Implement the findLowStock function here
+int findLowStock(struct Product product[], int size, int threshold){
+    int count = 0;
+    for(int i = 0; i < size; i++){
+        if(product[i].stock < threshold) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// TODO: Implement the printProdInfo function here
+void printProdInfo(struct Product inventory[], int size) {
+    for (int i = 0; i < 3; i++) {
+        // Product [index]: [name] - Price: [price], Stock: [stock]
+        printf("Product %d: %s - Price: %.2f, Stock: %d\n", i, inventory[i].name, inventory[i].price, inventory[i].stock);
+    }
+}
+
+int main() {
+    // Create array of 3 products
+    struct Product inventory[3];
+    
+    // Read input for each product
+    for (int i = 0; i < 3; i++) {
+        scanf("%s", inventory[i].name);
+        scanf("%f", &inventory[i].price);
+        scanf("%d", &inventory[i].stock);
+    }
+    
+    // TODO: Print each product's information
+    printProdInfo(inventory, 3);
+
+    // TODO: Find and print the most expensive product
+    int mostExpensiveIndex = findMostExpensive(inventory, 3);
+    if (mostExpensiveIndex != -1) {
+        printf("Most expensive product: %s\n", inventory[mostExpensiveIndex].name);
+    }
+
+    // TODO: Calculate and print total inventory value
+    float totalValue = calculateTotalValue(inventory, 3);
+    printf("Total inventory value: %.2f\n", totalValue);
+
+    // Read low stock threshold
+    int threshold;
+    scanf("%d", &threshold);
+    
+    // TODO: Find and print products with low stock
+    int lowStockCount = findLowStock(inventory, 3, threshold);
+    printf("Products with low stock: %d\n", lowStockCount);
+
+    // TODO: Check if most expensive product is well stocked
+    if (mostExpensiveIndex != -1 && inventory[mostExpensiveIndex].stock > 10) {
+        printf("Most expensive product is well stocked\n");
+    } else {
+        printf("Most expensive product needs restocking\n");
+    }
+
+    return 0;
+}*/
+
+/*
+// TODO: Write your concatenateStrings function here
+char* concatenateStrings(char* str1, char* str2){
+
+    char* result = (char*)malloc((strlen(str1) + strlen(str2) + 1) * sizeof(char));
+
+    if(result == NULL){
+        return NULL;
+    }
+
+    strcpy(result, str1);
+    strcat(result, str2);
+
+    return result;
+}
+
+// TODO: Write your processText function here
+char* processText(char* word1, char* word2, char* separator){
+
+    char* temp = concatenateStrings(word1, separator);
+    if(temp == NULL) return NULL;
+    char* finalResult = concatenateStrings(temp, word2);
+    free(temp);
+
+    return finalResult;
+}
+
+int main() {
+    // Read input
+    char firstWord[50];
+    char secondWord[50];
+    char connector[50];
+    
+    scanf("%s", firstWord);
+    scanf("%s", secondWord);
+    scanf("%s", connector);
+    
+    // TODO: Write your code below
+    // Call processText function and handle the result
+    char* result = processText(firstWord, secondWord, connector);
+
+    if (result != NULL) {
+        printf("Result: %s\n", result);
+        printf("Length: %d\n", (int)strlen(result));
+        free(result);
+    } else {
+        printf("Memory allocation failed\n");
+    }
+    
+    return 0;
+}*/
+
+/*
+// TODO: Define your enum ShapeType and typedef here
+enum ShapeType {
+    CIRCLE,
+    RECTANGLE,
+    TRIANGLE
+};
+
+typedef enum ShapeType Shape;
+
+// TODO: Implement the calculateArea function here
+float calculateArea(Shape shape, float dimension1, float dimension2) {
+    switch(shape){
+        case CIRCLE: 
+            return 3.14159 * dimension1 * dimension1;
+        case RECTANGLE: 
+            return dimension1 * dimension2;
+        case TRIANGLE: 
+            return 0.5 * dimension1 * dimension2;
+        default:
+            return 0.0;
+    }
+    return 0.0;
+}
+
+// TODO: Implement the printShapeInfo function here
+void printShapeInfo(Shape shape) {
+    switch(shape){
+        case CIRCLE: 
+            printf("Shape: Circle\n");
+            break;
+        case RECTANGLE: 
+            printf("Shape: Rectangle\n");
+            break;
+        case TRIANGLE: 
+            printf("Shape: Triangle\n");
+            break;
+        default:
+            printf("Shape: Unknown\n");
+    }
+}
+
+int main() {
+    // Read input
+    int shapeChoice;
+    float dim1, dim2;
+    scanf("%d", &shapeChoice);
+    scanf("%f", &dim1);
+    scanf("%f", &dim2);
+    
+    // TODO: Write your code below
+    // Declare selectedShape variable and assign based on shapeChoice
+    Shape selectedShape;
+    
+    switch(shapeChoice) {
+        case 0: 
+            selectedShape = CIRCLE;
+            break;
+        case 1: 
+            selectedShape = RECTANGLE;
+            break;
+        case 2: 
+            selectedShape = TRIANGLE;
+            break;
+    }
+
+    // Call printShapeInfo function
+    printShapeInfo(selectedShape);
+
+    // Print dimensions
+    printf("Dimensions: %0.1f %0.1f\n", dim1, dim2);
+
+    // Calculate and print area
+    float area = calculateArea(selectedShape, dim1, dim2);
+    printf("Area: %0.2f\n", area);
+
+    // Determine and print category
+    if(area < 10.0) {
+        printf("Category: Small");
+    }else if (10 <= area && area <= 50){
+        printf("Category: Medium");
+    } else {
+        printf("Category: Large");
+    }
+    
+    return 0;
+}*/
+
+/*
+// TODO: Define your struct and typedef here
+struct Book{
+    int id;
+    char title[50];
+    float price;
+    int quantity;
+};
+
+int main() {
+    // TODO: Declare your Book variables here
+    typedef struct Book Book;
+    
+    // Read input for first book
+    int id1, quantity1;
+    char title1[50];
+    float price1;
+    
+    scanf("%d", &id1);
+    scanf("%s", title1);
+    scanf("%f", &price1);
+    scanf("%d", &quantity1);
+    
+    // TODO: Assign values to book1 members
+    Book book1;
+    book1.id = id1;
+    book1.price = price1;
+    book1.quantity = quantity1;
+    strncpy(book1.title, title1, sizeof(book1.title) - 1);
+    book1.title[sizeof(book1.title) - 1] = '\0';
+    
+    // Read input for second book
+    int id2, quantity2;
+    char title2[50];
+    float price2;
+    
+    scanf("%d", &id2);
+    scanf("%s", title2);
+    scanf("%f", &price2);
+    scanf("%d", &quantity2);
+    
+    // TODO: Assign values to book2 members
+    Book book2;
+    book2.id = id2;
+    book2.price = price2;
+    book2.quantity = quantity2;
+    strncpy(book2.title, title2, sizeof(book2.title) - 1);
+    book2.title[sizeof(book2.title) - 1] = '\0';
+
+    // TODO: Print book information, calculate values, and compare
+    printf("Book 1: ID=%d, Title=%s, Price=%.2f, Quantity=%d\n", book1.id, book1.title, book1.price, book1.quantity);
+    printf("Book 2: ID=%d, Title=%s, Price=%.2f, Quantity=%d\n", book2.id, book2.title, book2.price, book2.quantity);
+
+    float totalValue1 = book1.price * book1.quantity;
+    float totalValue2 = book2.price * book2.quantity;
+    printf("Book 1 Total Value: %.2f\n", totalValue1);
+    printf("Book 2 Total Value: %.2f\n", totalValue2);
+
+    float inventoryValue = totalValue1 + totalValue2;
+    printf("Combined Inventory Value: %.2f\n", inventoryValue);
+
+    if (totalValue1 > totalValue2) {
+        printf("Book 1 has higher value\n");
+    } else if (totalValue2 > totalValue1) {
+        printf("Book 2 has higher value\n");
+    } else {
+        printf("Both books have equal value\n");
+    }
+
+    return 0;
+}*/
 
 /*
 // TODO: Create typedef aliases here
