@@ -3,11 +3,60 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+/*
 // TODO: Write your extractWord function here
+int extractWord(char* sentence, int startIndex, char* word) {
+    int i = 0;
+
+    while (sentence[startIndex + i] != '\0' && !isspace(sentence[startIndex + i])) {
+        word[i] = sentence[startIndex + i];
+        i++;
+    }
+    word[i] = '\0';
+
+    return startIndex + i;
+}
 
 // TODO: Write your countWordOccurrences function here
+int countWordOccurrences(char* sentence, char* targetWord) {
+    int count = 0;
+    char currentWord[50];
+    int i = 0;
+    int len = strlen(sentence);
+
+    while (i < len) {
+        while (i < len && isspace(sentence[i])) {
+            i++;
+        }
+
+        if (i >= len) break;
+
+        i = extractWord(sentence, i, currentWord);
+
+        if (strcmp(currentWord, targetWord) == 0) 
+            count++;
+        }
+    }
+    return count;
+}
 
 // TODO: Write your analyzeText function here
+int analyzeText(char* sentence) {
+    int count = 0;
+    int inWord = 0;
+
+    for (int i = 0; sentence[i] != '\0'; i++) {
+        if (!isspace(sentence[i])) {
+            if (inWord == 0) {
+                count++;
+                inWord = 1;
+            }
+        } else {
+            inWord = 0;
+        }
+    }
+    return count;
+}
 
 int main() {
     char inputSentence[200];
@@ -23,18 +72,35 @@ int main() {
     
     // TODO: Write your code below
     // Call analyzeText function and store total word count
+    int totalWords = analyzeText(inputSentence);
+
     // Call countWordOccurrences function and store occurrences
+    int occurrences = countWordOccurrences(inputSentence, searchWord);
+
     // Calculate frequency percentage
+    float frequency = (float)occurrences / totalWords * 100.0;
+
     // Determine frequency category
-    
+    char* category;
+
+    if (frequency == 0.0) {
+        category = "Not found";
+    } else if (frequency > 0.0 && frequency < 20.0) {
+        category = "Rare";
+    } else if (frequency >= 20.0 && frequency <= 50.0) {
+        category = "Common";
+    } else {
+        category = "Frequent";
+    }
+
     // Output results in the required format
-    // printf("Total words: %d\n", totalWords);
-    // printf("Occurrences of '%s': %d\n", searchWord, occurrences);
-    // printf("Frequency: %.1f%%\n", frequency);
-    // printf("Category: %s\n", category);
+    printf("Total words: %d\n", totalWords);
+    printf("Occurrences of '%s': %d\n", searchWord, occurrences);
+    printf("Frequency: %.1f%%\n", frequency);
+    printf("Category: %s\n", category);
     
     return 0;
-}
+}*/
 
 /*
 // TODO: Define the Product struct here
